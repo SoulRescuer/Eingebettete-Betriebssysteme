@@ -21,43 +21,74 @@ enum ProzessZustand{
 	WARTEND
 };
 
-typedef struct{								// Prozesskontext 
-	uint8_t pid;							// eindeutige Prozess ID
-	enum ProzessZustand pZstd = WARTEND;
-	uint32_t stackPointer;					// noch keine Ahnung wie man da ran kommt =/
-	uint32_t programCounter;				// ^
+typedef struct{																						// Prozesskontext 
+	uint8_t pid;																						// eindeutige Prozess ID
+	enum ProzessZustand pZstd;
+	uint32_t stackPointer;																	// noch keine Ahnung wie man da ran kommt =/
+	uint32_t programCounter;															// ^
 	//--uint32_t verbrauchteRechenzeit;
 }pcb_entry;									
 
-pcb_entry processTable[NPROCS];				// Anlegen der Prozesstabelle
+
+pcb_entry processTable[NPROCS];			// Anlegen der Prozesstabelle
 uint32_t stack[NPROCS][32];					// stacks für alle Prozesse á 32 Worte
 
 
 void led1(void);
 void led2(void);
-void swctx() {};																	// soll die vorher gesicherten register wiederholen MUSS in assembler realisiert werden!
+void ctxswitch(uintptr_t *spold, uintptr_t spnew);							// soll die vorher gesicherten register wiederholen MUSS in assembler realisiert werden!
+
+// void yield() {
+//   uintptr_t spold, spnew
+//   ctxswitch(&spold, spnew);
+// }
 
 // API Bereich Anfang
 
+	
+	
+//Prozess erzeugen	
 pid_t create(void(*entry)(void)) {
-	for (int i = 0; !processTable[i] && processTable[i]<=processTable[NPROCS] ; i++){ // wenn der Slot im ProcessTable noch frei ist und das ende des tables noch nicht erreicht
+	for (int i = 0; (processTable[i].pZstd==UNBENUTZT) && i<=NPROCS; i++){ // wenn der Slot im ProcessTable noch frei ist und das ende des tables noch nicht erreicht
 		processTable[i].pZstd = BEREIT;
-		processTable[i].pid = i;													// setzten der ID auf den PLatz im Table sollte eindeutig genug sein
-		processTable[i].stackPointer ;												// noch nicht sicher wie der ermittelt wird vermutloch via Assembler
+		processTable[i].pid = i;																												// setzten der ID auf den PLatz im Table sollte eindeutig genug sein
+		processTable[i].stackPointer=0;																							  	// noch nicht sicher wie der ermittelt wird vermutloch via Assembler
 		
-		return processTable[i].pid;													// falls erfolgreich -> Rückgabe der ID
+		return processTable[i].pid;																										// falls erfolgreich -> Rückgabe der ID
 	}
-	return 0;																		// falls erfolglos -> Rückgabe 0
+	return -1;																																				// falls erfolglos -> Rückgabe 0
 };
 
+
+//Prozess löschen
 result_t destroy(pid_t pid) {
-
-
+	for (int i = 0; (processTable[i].pid) == pid; i++){
+		processTable[i].pZstd=UNBENUTZT;
+		return 1;
+	}
+	return -1;
 };
+
+
 result_t wait(pid_t pid) {
-
+	int i = 0;
+	while((processTable[i].pZstd==LAUFEND) && i<=NPROCS){
+		return 1;
+	}
+	processTable[i].pZstd=WARTEND;
+	return 0;
 
 };
+
+
+
+
+
+
+
+
+
+
 
 // API Bereich ENDE
 uint32_t led1_wert = 0x100;					
@@ -84,10 +115,7 @@ void yield() {
 
 int main(void) {
 	
-	static TaskType Tasks[] = {
-	{ 5, 0, led1 },
-	{ 10, 0, led2 }
-	};
+	
 	
 	
 	LPC_GPIO0->DIR = 0xFF00;					
