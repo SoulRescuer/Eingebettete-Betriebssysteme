@@ -1,0 +1,70 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             switch, CODE, readonly
+    2 00000000                 EXPORT           firstProces
+    3 00000000                 EXPORT           ctxswitch
+    4 00000000         
+    5 00000000         firstProces
+                               PROC
+    6 00000000 4685            mov              sp, r0
+    7 00000002 BC7C            pop              { r2-r6 }
+    8 00000004 46B4            mov              r12, r6
+    9 00000006 46AB            mov              r11, r5
+   10 00000008 46A2            mov              r10, r4
+   11 0000000A 4699            mov              r9, r3
+   12 0000000C 4690            mov              r8, r2
+   13 0000000E BDF0            pop              { r4-r7, pc }
+   14 00000010                 ENDP
+   15 00000010         
+   16 00000010         ctxswitch
+                               PROC
+   17 00000010         ;sichern von p1
+   18 00000010 E92D 5FF0       push             {r4-r12, lr}
+   19 00000014         ;holen von p2
+   20 00000014 468D            mov              sp,r1
+   21 00000016 E8BD 9FF0       pop              {r4-r12,pc}
+   22 0000001A 4770            bx               lr
+   23 0000001C                 ENDP
+   24 0000001C         
+                       
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\switch.d -o.\objects\switch.o -IC:\Keil_v5\ARM\RV31\INC 
+-IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x --predefine=
+"__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 524" --list=.\listings\swit
+ch.lst switch.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ctxswitch 00000010
+
+Symbol: ctxswitch
+   Definitions
+      At line 16 in file switch.s
+   Uses
+      At line 3 in file switch.s
+Comment: ctxswitch used once
+firstProces 00000000
+
+Symbol: firstProces
+   Definitions
+      At line 5 in file switch.s
+   Uses
+      At line 2 in file switch.s
+Comment: firstProces used once
+switch 00000000
+
+Symbol: switch
+   Definitions
+      At line 1 in file switch.s
+   Uses
+      None
+Comment: switch unused
+3 symbols
+335 symbols in table

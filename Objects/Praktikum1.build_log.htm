@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.24.2.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Udo Schader, Hochschule Coburg, LIC=PF8PE-5XDA0-XEQHI-RNTWV-95MI8-37TFM
+License Information: Patrick Brust, Hochschule Coburg, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-ARM Essential  Version: 5.24.1
+Toolchain:       MDK-Lite  Version: 5.24.1
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 5 (build 528)
 Assembler:       Armasm.exe V5.06 update 5 (build 528)
@@ -21,22 +21,26 @@ Target DLL:      UL2CM3.DLL V1.160.3.0
 Dialog DLL:      TARMP1.DLL V1.26.0.0
  
 <h2>Project:</h2>
-D:\EBsy\Praktikum 1&2\Praktikum1.uvproj
-Project File Date:  10/27/2017
+C:\Users\OvO\Documents\GitHub\Eingebettete-Betriebssysteme\Praktikum1.uvproj
+Project File Date:  11/22/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling core_cm3.c...
 assembling startup_LPC177x_8x.s...
-compiling main.c...
-main.c(34): warning:  #177-D: variable "tick_counter"  was declared but never referenced
-  	static uint32_t tick_counter = 0;
-main.c: 1 warning, 0 errors
+compiling core_cm3.c...
+assembling switch.s...
+switch.s(25): warning: A1313W: Missing END directive at end of file
 compiling system_LPC177x_8x.c...
+compiling main.c...
+main.c(80): warning:  #68-D: integer conversion resulted in a change of sign
+  		return -1;
+main.c(95): warning:  #68-D: integer conversion resulted in a change of sign
+  	return -1;
+main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=976 RO-data=260 RW-data=48 ZI-data=1632  
-".\Objects\Praktikum1.axf" - 0 Error(s), 1 Warning(s).
+Program Size: Code=1028 RO-data=260 RW-data=24 ZI-data=2080  
+".\Objects\Praktikum1.axf" - 0 Error(s), 3 Warning(s).
 Build Time Elapsed:  00:00:00
 </pre>
 </body>
