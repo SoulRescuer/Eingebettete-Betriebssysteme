@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 void User_Task_LEDA(void)
 {
     uint32_t uiDelay=100;
@@ -113,4 +114,121 @@ __asm void LOAD_REGISTERS_PSP_ASM(void)
     LDMFD r0!, {r4-r11}   
     MSR psp, r0
     BX lr
+=======
+void User_Task_LEDA(void)
+{
+    uint32_t uiDelay=100;
+    while(1)
+    {
+        GPIO_SetBits(GPIO_LED, GPIO_Pin_3);
+        iOS_Sleep(uiDelay);
+        GPIO_ResetBits(GPIO_LED, GPIO_Pin_3);
+        iOS_Sleep(uiDelay);
+    }
+}
+void User_Task_LEDB(void)
+{
+    uint32_t uiDelay=400;
+    while(1)
+    {
+        GPIO_ResetBits(GPIO_LED, GPIO_Pin_6);
+        iOS_Sleep(uiDelay);
+        GPIO_SetBits(GPIO_LED, GPIO_Pin_6);
+        iOS_Sleep(uiDelay);
+    }
+}
+int main(void)
+{
+    iOS_Init();
+    GPIO_LED_Configuration();
+
+    iOS_Task_Create((void*)&User_Task_LEDA, 0, 0);
+    iOS_Task_Create((void*)&User_Task_LEDB, 0, 1);
+
+    iOS_Run();
+}
+
+>Major OS C functions
+
+uint32_t OS_Get_Next_Task(void)
+{
+    int i=0;
+    for (;i<OS_TASK_MAXIMUM_NUMBER;i++)
+    {
+       if(taskInfo[i].ucValidTag==1 && taskInfo[i].ucState==TASK_STATE_READY)
+           return i;
+    }
+    return OS_IDLE_TASK_ID; //OS idle task
+}
+void OS_Idle_Task(void)
+{
+    static uint32_t uiIdleCounter=0;
+    while (1)
+    {
+        uiIdleCounter++;
+    }   
+}
+void OS_Init_Run(void)
+{
+//set current task to idle task
+   iCurrentTask=7;
+//set init PSP value
+   SET_PSP_ASM(taskInfo[iCurrentTask].uiCurStackPos);
+//switch from MSP to PSP
+   Switch_to_PSP_ASM();
+  
+   OS_Idle_Task();
+}
+void PendSV_Handler(void)
+{
+//do context switch in PendSV handler
+    iNextTask=OS_Get_Next_Task();
+    if(iCurrentTask!=iNextTask)
+    {
+//need do context switch
+        uiCSCounter++;
+#ifdef SAVE_CPU_REGISTERS
+        STORE_REGISTERS_PSP_ASM();
+#endif
+        uiCurrentPSP=GET_PSP_ASM();
+
+        taskInfo[iCurrentTask].uiCurStackPos=uiCurrentPSP;
+
+//update current task
+        iCurrentTask=iNextTask;   
+        SET_PSP_ASM(taskInfo[iCurrentTask].uiCurStackPos);
+
+#ifdef SAVE_CPU_REGISTERS
+        LOAD_REGISTERS_PSP_ASM();
+#endif
+    }
+}
+
+>Major OS Assembly code
+
+__asm uint32_t GET_PSP_ASM(void)
+{
+    MRS r0, psp
+    BX lr
+}
+__asm void SET_PSP_ASM(uint32_t uiPSP)
+{
+    MSR psp, r0
+    BX lr
+}
+
+__asm void STORE_REGISTERS_PSP_ASM(void)
+{
+    MRS r0, psp   
+    STMDB r0!, {r4-r11}
+    MSR psp, r0
+    BX lr
+}
+__asm void LOAD_REGISTERS_PSP_ASM(void)
+{
+    MRS r0, psp
+    LDMFD r0!, {r4-r11}   
+    MSR psp, r0
+    BX lr
+>>>>>>> e55bb4375f7f229273dbe21a3aae35c3b5d5f9be
 }
