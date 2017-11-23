@@ -17,4 +17,4 @@ I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D4E0A)
 I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D4E0A)
 I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D4E0A)
 I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x5703BE82)
-F (.\switch.s)(0x5A1706A2)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x--pd "__UVISION_VERSION SETA 524"--list .\listings\switch.lst --xref -o .\objects\switch.o --depend .\objects\switch.d)
+F (.\switch.s)(0x5A16F38A)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x--pd "__UVISION_VERSION SETA 524"--list .\listings\switch.lst --xref -o .\objects\switch.o --depend .\objects\switch.d)

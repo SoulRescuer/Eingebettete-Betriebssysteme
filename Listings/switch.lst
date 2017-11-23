@@ -29,7 +29,6 @@ ARM Macro Assembler    Page 1
    21 00000016 E8BD 9FF0       pop              {r4-r12,pc}
    22 0000001A 4770            bx               lr
    23 0000001C                 ENDP
-   24 0000001C         
                        
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\switch.d -o.\objects\switch.o -IC:\Keil_v5\ARM\RV31\INC 
