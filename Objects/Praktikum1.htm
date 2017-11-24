@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Praktikum1.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Praktikum1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Nov 23 18:26:55 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Nov 24 09:35:37 2017
 <BR><P>
 <H3>Maximum Stack Usage =         16 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -475,24 +475,24 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[36]"></a>SystemInit</STRONG> (Thumb, 204 bytes, Stack size 0 bytes, system_lpc177x_8x.o(i.SystemInit))
-<BR>[Address Reference Count : 1]<UL><LI> startup_lpc177x_8x.o(.text)
-</UL>
-<P><STRONG><a name="[39]"></a>led1</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main.o(i.led1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = led1 &rArr; yield
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yield
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
-</UL>
-<P><STRONG><a name="[3a]"></a>led2</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, main.o(i.led2))
+<P><STRONG><a name="[3a]"></a>led2</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(i.led2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = led2 &rArr; yield
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yield
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[36]"></a>SystemInit</STRONG> (Thumb, 204 bytes, Stack size 0 bytes, system_lpc177x_8x.o(i.SystemInit))
+<BR>[Address Reference Count : 1]<UL><LI> startup_lpc177x_8x.o(.text)
+</UL>
+<P><STRONG><a name="[39]"></a>led1</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, main.o(i.led1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = led1 &rArr; yield
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yield
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
+</UL>
+<P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = main &rArr; create
 </UL>
 <BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;firstProces
@@ -511,11 +511,11 @@ Global Symbols
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;idle
 </UL>
 
-<P><STRONG><a name="[50]"></a>firstProces</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, switch.o(switch))
+<P><STRONG><a name="[50]"></a>firstProces</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, switch.o(switch))
 <BR><BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[51]"></a>ctxswitch</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, switch.o(switch))
+<P><STRONG><a name="[51]"></a>ctxswitch</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, switch.o(switch))
 <BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yield
 </UL>
 <P>

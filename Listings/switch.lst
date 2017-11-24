@@ -11,41 +11,38 @@ ARM Macro Assembler    Page 1
     5 00000000         firstProces
                                PROC
     6 00000000 4685            mov              sp, r0
-    7 00000002 BC7C            pop              { r2-r6 }
-    8 00000004 46B4            mov              r12, r6
-    9 00000006 46AB            mov              r11, r5
-   10 00000008 46A2            mov              r10, r4
-   11 0000000A 4699            mov              r9, r3
-   12 0000000C 4690            mov              r8, r2
-   13 0000000E BDF0            pop              { r4-r7, pc }
-   14 00000010                 ENDP
-   15 00000010         
-   16 00000010         ctxswitch
+    7 00000002 E8BD 0FF0       pop              { r4-r11 }
+    8 00000006 BD00            pop              { pc }
+    9 00000008                 ENDP
+   10 00000008         
+   11 00000008         ctxswitch
                                PROC
-   17 00000010         ;sichern von p1
-   18 00000010 E92D 5FF0       push             {r4-r12, lr}
-   19 00000014         ;holen von p2
-   20 00000014 468D            mov              sp,r1
-   21 00000016 E8BD 9FF0       pop              {r4-r12,pc}
-   22 0000001A 4770            bx               lr
-   23 0000001C                 ENDP
+   12 00000008         ;sichern von p1
+   13 00000008 E92D 4FF0       push             {r4-r11, lr}
+   14 0000000C F8C0 D000       str              sp, [r0]
+   15 00000010         ;holen von p2
+   16 00000010         ;;;; HIER!
+   17 00000010 468D            mov              sp,r1
+   18 00000012 E8BD 0FF0       pop              {r4-r11}
+   19 00000016 F85D EB04       pop              {lr}
+   20 0000001A 4770            bx               lr
+   21 0000001C                 ENDP
                        
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\switch.d -o.\objects\switch.o -IC:\Keil_v5\ARM\RV31\INC 
 -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x --predefine=
-"__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 524" --list=.\listings\swit
-ch.lst switch.s
+"__UVISION_VERSION SETA 524" --list=.\listings\switch.lst switch.s
 
 
 
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Relocatable symbols
 
-ctxswitch 00000010
+ctxswitch 00000008
 
 Symbol: ctxswitch
    Definitions
-      At line 16 in file switch.s
+      At line 11 in file switch.s
    Uses
       At line 3 in file switch.s
 Comment: ctxswitch used once
@@ -66,4 +63,4 @@ Symbol: switch
       None
 Comment: switch unused
 3 symbols
-335 symbols in table
+334 symbols in table

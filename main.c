@@ -71,7 +71,7 @@ pid_t create(void(*entry)(void), uint32_t zyklus) {
 		processTable[i].Func = entry;
 		processTable[i].interval = zyklus;
 		processTable[i].stackPointer = (uintptr_t) &(stack[i][31]) - 9 * 4;
-		stack[i][31] =(uintptr_t) entry;
+		stack[i][30] =(uintptr_t) entry;
 		temp = i;
 		i++;
 		return temp;
@@ -153,19 +153,20 @@ int main(void) {
 
 	processTable[0].pZstd = LAUFEND;
 	firstProces(processTable[0].stackPointer);
-
-	while (1);
-
-
+	
+	
 	/*	Systick erst bei prämtiv */
-	/* 
-	static uint32_t tick_counter = 0;
+	
 	volatile static uint32_t tick = 0;													
 	SysTick->CTRL=1|(1<<2);
 	SysTick->LOAD=800000;
 	SysTick->VAL=0;
 	tick = SysTick->VAL;															
-	*/
+	
+
+	while (1);
+
+
 	
 	
 }
@@ -181,6 +182,7 @@ void idle(void) {
 *
 ******************************************************************/
 void led1(void) {
+	int x = 0;
 	while (1) {
 		/*
 		if (led1_wert < 0xF00) {
@@ -202,12 +204,14 @@ void led1(void) {
 		yield(&processTable[1]);
 		static int c = 10000;
 		c++;
+		++x;
 		yield(&processTable[1]);
 	}
 }
 
 
 void led2(void) {
+	int b = 1;
 	while (1) {/*
 		if (led2_wert < 0xF000) {
 			led2_wert = (led2_wert << 1) + LED2_BIT;
@@ -223,8 +227,7 @@ void led2(void) {
 			}
 		}
 		*/
-		static int b = 1;
-		b++;
+		++b;
 		yield(&processTable[2]);
 	}
 }

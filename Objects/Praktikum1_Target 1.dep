@@ -1,20 +1,20 @@
 Dependencies for Project 'Praktikum1', Target 'Target 1': (DO NOT MODIFY !)
-F (.\startup_LPC177x_8x.s)(0x59E05F0A)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x--pd "__UVISION_VERSION SETA 524"--list .\listings\startup_lpc177x_8x.lst --xref -o .\objects\startup_lpc177x_8x.o --depend .\objects\startup_lpc177x_8x.d)
-F (.\core_cm3.c)(0x5A0E95FA)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x-D__UVISION_VERSION="524"-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
+F (.\startup_LPC177x_8x.s)(0x5A17C7BE)(--cpu Cortex-M3 -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x--pd "__UVISION_VERSION SETA 524"--list .\listings\startup_lpc177x_8x.lst --xref -o .\objects\startup_lpc177x_8x.o --depend .\objects\startup_lpc177x_8x.d)
+F (.\core_cm3.c)(0x5A17C7BE)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x-D__UVISION_VERSION="524"-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BD7A4)
-F (.\system_LPC177x_8x.c)(0x505C15F6)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x-D__UVISION_VERSION="524"-o .\objects\system_lpc177x_8x.o --omf_browse .\objects\system_lpc177x_8x.crf --depend .\objects\system_lpc177x_8x.d)
+F (.\system_LPC177x_8x.c)(0x5A17C7BE)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x-D__UVISION_VERSION="524"-o .\objects\system_lpc177x_8x.o --omf_browse .\objects\system_lpc177x_8x.crf --depend .\objects\system_lpc177x_8x.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BD7A4)
-I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\LPC177x_8x.h)(0x57867634)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D4E0A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D4E0A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D4E0A)
-I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x5703BE82)
-I (system_LPC177x_8x.h)(0x4F8EAB44)
-F (.\main.c)(0x5A170335)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x-D__UVISION_VERSION="524"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\LPC177x_8x.h)(0x57866824)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x5703B072)
+I (system_LPC177x_8x.h)(0x5A17C7BE)
+F (.\main.c)(0x5A17D64C)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x-D__UVISION_VERSION="524"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BD7A4)
-I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\LPC177x_8x.h)(0x57867634)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D4E0A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D4E0A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D4E0A)
-I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x5703BE82)
-F (.\switch.s)(0x5A16F38A)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x--pd "__UVISION_VERSION SETA 524"--list .\listings\switch.lst --xref -o .\objects\switch.o --depend .\objects\switch.d)
+I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\LPC177x_8x.h)(0x57866824)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\INC\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x5703B072)
+F (.\switch.s)(0x5A17D9D9)(--cpu Cortex-M3 -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\NXP\LPC177x_8x--pd "__UVISION_VERSION SETA 524"--list .\listings\switch.lst --xref -o .\objects\switch.o --depend .\objects\switch.d)
